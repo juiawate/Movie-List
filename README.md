@@ -12,6 +12,7 @@ Movies Application
 #Improvements
  - Categories can be provided to display movies when a particular category is selected (like popular, latest etc.)
  - Page can be made more responsive using bootstrap grid system.
+ - The backend calls can be converted to node.js application
 
 
 
