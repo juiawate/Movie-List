@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="MovieApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Movie List</title>
+    <link rel="stylesheet" href="base.css"/>
+</head>
+<body ng-controller="MovieCtrl">
+    <header></header>
+    <section>
+        <div id="browseSection">
+            <div>
+                <h1>Browse Movies</h1><hr>
+                <ul id="movies">
+                    <li ng-repeat="movie in movies" ng-click="getMovieDetails(movie.id)">
+                        <a href="#" ng-class="{'selected': selectedMovie.id == movie.id}">
+                            <div>
+                                <img ng-if="movie.poster_path" ng-src="{{configuration.images.base_url}}{{configuration.images.logo_sizes[2]}}{{movie.poster_path}}" alt="image"/>
+                                <img ng-hide="movie.poster_path" src="imageNotAvailable.jpg" class="notFoundImg"/>
+                            </div>
+                            <h2>{{movie.title}}</h2>
+                            <p>{{movie.directors}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="detailsSection" ng-if="selectedMovie">
+            <div id="movieData">
+                <h1 ng-bind="selectedMovie.title"></h1> <hr />
+                <div id="movieImg">
+                    <img ng-if="selectedMovie.poster_path" ng-src="{{configuration.images.base_url}}{{configuration.images.poster_sizes[2]}}{{selectedMovie.poster_path}}" alt="image"/>
+                    <img ng-hide="selectedMovie.poster_path" src="imageNotAvailable.jpg" class="notFoundImg"/>
+                </div>
+                <div id="movieInfo">
+                    <h2>Who made it?</h2><br />
+                    <div>
+                        <p><strong>Director: </strong><span ng-bind="selectedMovie.directors"></span></p>
+                        <p><strong>Writers: </strong><span ng-bind="selectedMovie.writers"></span></p>
+                        <p><strong>Stars: </strong><span ng-bind="selectedMovie.stars"></span></p>
+                    </div>
+                    <br />
+                    <h2>What's it about?</h2><br />
+                    <div>
+                        <p ng-bind="selectedMovie.overview"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="movieCredit">
+                <h1>Movie credits</h1> <hr />
+                <div id="starList">
+                    <ul>
+                        <li ng-repeat="star in selectedMovie.credits.cast">
+                            <a href="#" class="star" ng-click="selectStar(star.id)" ng-class="{'selected': selectedStar.id == star.id}">
+                                <ul>
+                                    <li><img ng-if="star.profile_path" ng-src="{{configuration.images.base_url}}{{configuration.images.profile_sizes[1]}}{{star.profile_path}}" alt="image"/>
+                                        <img ng-hide="star.profile_path" src="imageNotAvailable.jpg" class="notFoundImg"/>
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li><strong>{{star.name}}</strong></li>
+                                            <li>{{star.character}}</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="starImg" ng-if="selectedStar">
+                    <img ng-if="selectedStar.profile_path" ng-src="{{configuration.images.base_url}}{{configuration.images.poster_sizes[3]}}{{selectedStar.profile_path}}" alt="image"/>
+                    <img ng-hide="selectedStar.profile_path" src="imageNotAvailable.jpg" class="notFoundImg"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

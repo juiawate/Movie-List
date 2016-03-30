@@ -1,0 +1,136 @@
+*, html, body {
+    font-family: "Helvetica";
+    font-size: 14px;
+    line-height: 18px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+h1, h2 {
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 24px;
+    color: #1A9DBA;
+}
+h2 {
+    font-size: 14px;
+    color: #484949;
+}
+header {
+    height: 50px;
+    width: 100%;
+    background-color: #444;
+}
+section > div {
+    float: left;
+}
+#browseSection {
+    width: 33%;
+    border-right: 1px solid #888;
+    -webkit-box-shadow: 10px 0 5px -2px #888;
+    box-shadow: 10px 0 5px -2px #888;
+    background-color: #eee;
+}
+#browseSection > div, #detailsSection > div {
+    padding: 20px;
+    margin: 20px;
+}
+#browseSection #movies > li{
+    display: inline-block;
+    width: 50%;
+    margin: 30px 0;
+    vertical-align: top;
+    text-align: center;
+}
+#browseSection img {
+    border-radius: 100%;
+    height: 122px;
+    width: 122px;
+}
+#detailsSection {
+    width: 66%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+#detailsSection > #movieData {
+    height: 40%;
+}
+#detailsSection > #movieData > div {
+    float: left;
+}
+#detailsSection > #movieData > div#movieImg {
+    width: 33%;
+    height: 100%;
+    padding: 30px;
+}
+#detailsSection > #movieData > div#movieInfo {
+    width: 66%;
+    height: 100%;
+    padding: 30px;
+    overflow: scroll;
+}
+#detailsSection > #movieData img {
+    width: 174px;
+    height: 262px;
+}
+#detailsSection > #movieCredit {
+    height: 60%;
+}
+#detailsSection > #movieCredit > #starList {
+    height: 100%;
+    overflow: scroll;
+    padding: 30px;
+    float: left;
+    width: 40%;
+}
+#detailsSection > #movieCredit .star img {
+    border-radius: 100%;
+    height: 66px;
+    width: 66px;
+}
+#detailsSection > #movieCredit .star > ul > li {
+    display: inline-block;
+    vertical-align: middle;
+}
+#detailsSection > #movieCredit > #starImg {
+    float: left;
+    width: 60%;
+    margin-top: 30px;
+}
+#detailsSection > #movieCredit > #starImg > img {
+    height: 420px;
+    width: 347px;
+    float: right;
+    margin-right: 80px;
+}
+#starList a.selected img {
+    border: 5px solid #1A9DBA;
+}
+ul {
+    list-style: none;
+}
+#browseSection a:hover img, #browseSection a.selected img {
+    border: 9px solid #1A9DBA;
+}
+#detailsSection > #movieCredit > #starList a:hover img{
+    border: 5px solid #1A9DBA;
+}
+#browseSection a:hover, #detailsSection > #movieCredit > #starList a:hover,
+#detailsSection > #movieCredit > #starList a.selected,
+#browseSection a:hover > *, #browseSection a.selected > *{
+    color: #1A9DBA;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+hr {
+    margin-top: 5px;
+}
+#starImg:after{
+    content: '';
+    display: block;
+    clear: both;
+}
